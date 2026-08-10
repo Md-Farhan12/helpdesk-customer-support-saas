@@ -38,6 +38,14 @@ classDiagram
         +NotificationService
     }
 
+    class Repositories {
+        +UserRepository
+        +TicketRepository
+        +CategoryRepository
+        +CommentRepository
+        +NotificationRepository
+    }
+
     class Database {
         +engine
         +SessionLocal
@@ -69,8 +77,11 @@ classDiagram
     API --> Schemas : validates requests and responses
     API --> Services : calls business operations
 
-    Services --> Models : uses domain models
-    Services --> Database : performs database operations
+    Services --> Repositories : uses data access
+    Services --> Models : applies business rules
+
+    Repositories --> Database : performs database queries
+    Repositories --> Models : reads and writes entities
 
     Database --> Settings : reads database configuration
     Database --> Models : maps entities
