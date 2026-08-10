@@ -1,0 +1,77 @@
+classDiagram
+
+    class MainApplication {
+        +FastAPI app
+        +root()
+        +health_check()
+    }
+
+    class Settings {
+        +database_url
+        +load_configuration()
+    }
+
+    class API {
+        +Authentication
+        +Users
+        +Tickets
+        +Categories
+        +Comments
+        +Notifications
+    }
+
+    class Schemas {
+        +UserCreate
+        +UserResponse
+        +TicketCreate
+        +TicketResponse
+        +TicketUpdate
+        +CommentCreate
+        +CommentResponse
+    }
+
+    class Services {
+        +AuthService
+        +UserService
+        +TicketService
+        +CategoryService
+        +NotificationService
+    }
+
+    class Database {
+        +engine
+        +SessionLocal
+        +Base
+        +get_db()
+    }
+
+    class Models {
+        +User
+        +Role
+        +Ticket
+        +Category
+        +Priority
+        +TicketComment
+        +TicketAssignment
+        +Notification
+        +KnowledgeBaseArticle
+        +ActivityLog
+    }
+
+    class PostgreSQL {
+        +helpdesk_saas
+        +Port 5432
+    }
+
+    MainApplication --> API : routes requests
+    MainApplication --> Settings : loads configuration
+
+    API --> Schemas : validates requests and responses
+    API --> Services : calls business operations
+
+    Services --> Models : uses domain models
+    Services --> Database : performs database operations
+
+    Database --> Settings : reads database configuration
+    Database --> Models : maps entities
+    Database --> PostgreSQL : SQL connections
