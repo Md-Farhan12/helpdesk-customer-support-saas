@@ -1,0 +1,19 @@
+flowchart TB
+
+    subgraph HOSTING["CLOUD / HOSTING BOUNDARY"]
+        
+        CLIENT["CLIENT LAYER<br/><br/>React Frontend<br/>Browser"]
+
+        BACKEND["BACKEND / API LAYER<br/><br/>FastAPI<br/><br/>API Routers<br/>↓<br/>Services<br/>↓<br/>Repositories"]
+
+    end
+
+    DATABASE["DATABASE LAYER<br/><br/>PostgreSQL<br/><br/>Database: helpdesk_saas<br/>Port: 5432"]
+
+    EMAIL["EXTERNAL SERVICES<br/><br/>Email / SMTP<br/><br/>Ticket Notifications"]
+
+    CLIENT -->|"HTTPS / REST API"| BACKEND
+
+    BACKEND -->|"SQL / PostgreSQL Driver"| DATABASE
+
+    BACKEND -->|"SMTP / Email API"| EMAIL
