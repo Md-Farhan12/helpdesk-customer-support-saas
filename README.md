@@ -4,18 +4,81 @@ A full-stack customer support ticketing platform for managing customer support r
 
 ## Project Status
 
-🚧 **Currently in Development — Day 1: Problem Statement Finalization**
+🚧 **Review-I MVP — Day 11**
 
-## Technology Track
+The MVP currently supports authentication, role-based access, customer ticket creation, ticket management, agent assignment, ticket comments, and administrator management.
 
-* Frontend: React
-* Backend: FastAPI
-* Database: PostgreSQL
-* ORM: SQLAlchemy
-* Authentication: JWT
-* Testing: Pytest
-* CI/CD: GitHub Actions
+## Technology Stack
 
-## Project Documentation
+| Layer | Technology |
+|---|---|
+| Frontend | React 19 |
+| Frontend Build Tool | Vite |
+| Backend | FastAPI |
+| Database | PostgreSQL |
+| ORM | SQLAlchemy |
+| Database Driver | psycopg |
+| Authentication | JWT |
+| Password Hashing | Argon2 |
+| Validation | Pydantic |
+| API Documentation | FastAPI Swagger / OpenAPI |
+| Testing | Pytest |
+| Version Control | Git / GitHub |
 
-* [Problem Statement](./Problem_Statement.md)
+## User Roles
+
+### Customer
+
+- Sign up and log in
+- Create support tickets
+- View own tickets
+- View ticket details
+- Add ticket comments
+- Update permitted ticket information
+
+### Support Agent
+
+- Log in
+- View support tickets
+- View assigned tickets
+- Update ticket status
+- Add ticket comments
+- Manage ticket workflow
+
+### Administrator
+
+- Log in
+- View all tickets
+- Assign tickets to support agents
+- Manage users
+- Manage support operations
+
+## Core Features
+
+- JWT-based authentication
+- Role-based authorization
+- Customer ticket management
+- Ticket assignment
+- Ticket status workflow
+- Ticket comments
+- Category management
+- Priority management
+- Administrator management
+- PostgreSQL database persistence
+
+## System Architecture
+
+The application follows a layered architecture:
+
+```text
+React Frontend
+      ↓
+FastAPI API Routers
+      ↓
+Services
+      ↓
+Repositories
+      ↓
+SQLAlchemy Models
+      ↓
+PostgreSQL
