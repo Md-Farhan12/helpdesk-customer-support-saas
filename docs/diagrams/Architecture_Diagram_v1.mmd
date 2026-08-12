@@ -1,19 +1,41 @@
 flowchart TB
 
-    subgraph HOSTING["CLOUD / HOSTING BOUNDARY"]
-        
-        CLIENT["CLIENT LAYER<br/><br/>React Frontend<br/>Browser"]
+    CUSTOMER["Customer"]
+    AGENT["Support Agent"]
+    ADMIN["Administrator"]
 
-        BACKEND["BACKEND / API LAYER<br/><br/>FastAPI<br/><br/>API Routers<br/>↓<br/>Services<br/>↓<br/>Repositories"]
+    FRONTEND["React Frontend<br/>Login / Signup<br/>Customer Dashboard<br/>Agent Dashboard<br/>Admin Dashboard"]
 
-    end
+    API["FastAPI Backend<br/>REST API"]
 
-    DATABASE["DATABASE LAYER<br/><br/>PostgreSQL<br/><br/>Database: helpdesk_saas<br/>Port: 5432"]
+    AUTH["Authentication & Authorization<br/>JWT<br/>Role-Based Access"]
 
-    EMAIL["EXTERNAL SERVICES<br/><br/>Email / SMTP<br/><br/>Ticket Notifications"]
+    SERVICES["Service Layer<br/>UserService<br/>TicketService<br/>TicketCommentService"]
 
-    CLIENT -->|"HTTPS / REST API"| BACKEND
+    REPOSITORIES["Repository Layer<br/>UserRepository<br/>TicketRepository<br/>CategoryRepository<br/>PriorityRepository<br/>TicketCommentRepository"]
 
-    BACKEND -->|"SQL / PostgreSQL Driver"| DATABASE
+    ORM["SQLAlchemy ORM"]
 
-    BACKEND -->|"SMTP / Email API"| EMAIL
+    DB[("PostgreSQL<br/>helpdesk_saas")]
+
+    TICKETS["Ticket Management<br/>Create / View / Update<br/>Assignment & Status Workflow"]
+
+    COMMENTS["Ticket Comments<br/>Customer ↔ Support Agent"]
+
+    CUSTOMER --> FRONTEND
+    AGENT --> FRONTEND
+    ADMIN --> FRONTEND
+
+    FRONTEND -->|"HTTP / REST API"| API
+
+    API --> AUTH
+    API --> SERVICES
+
+    SERVICES --> TICKETS
+    SERVICES --> COMMENTS
+
+    SERVICES --> REPOSITORIES
+    REPOSITORIES --> ORM
+    ORM --> DB
+
+    AUTH --> DB
