@@ -1,15 +1,9 @@
-Table roles {
-  id integer [pk, increment]
-  name varchar(50) [not null, unique]
-  description text
-}
-
 Table users {
   id integer [pk, increment]
-  role_id integer [not null, ref: > roles.id]
-  full_name varchar(100) [not null]
+  name varchar(100) [not null]
   email varchar(255) [not null, unique]
   password_hash varchar(255) [not null]
+  role varchar(30) [not null]
   is_active boolean [not null, default: true]
   created_at timestamp [not null]
   updated_at timestamp
@@ -31,25 +25,18 @@ Table priorities {
 
 Table tickets {
   id integer [pk, increment]
+  ticket_number varchar(30) [not null, unique]
   customer_id integer [not null, ref: > users.id]
   category_id integer [not null, ref: > categories.id]
   priority_id integer [not null, ref: > priorities.id]
+  assigned_agent_id integer [ref: > users.id]
   subject varchar(200) [not null]
   description text [not null]
   status varchar(30) [not null]
   created_at timestamp [not null]
-  updated_at timestamp
+  updated_at timestamp [not null]
   resolved_at timestamp
   closed_at timestamp
-}
-
-Table ticket_assignments {
-  id integer [pk, increment]
-  ticket_id integer [not null, ref: > tickets.id]
-  agent_id integer [not null, ref: > users.id]
-  assigned_at timestamp [not null]
-  unassigned_at timestamp
-  is_current boolean [not null, default: true]
 }
 
 Table ticket_comments {
@@ -59,35 +46,4 @@ Table ticket_comments {
   comment text [not null]
   created_at timestamp [not null]
   updated_at timestamp
-}
-
-Table notifications {
-  id integer [pk, increment]
-  user_id integer [not null, ref: > users.id]
-  ticket_id integer [ref: > tickets.id]
-  title varchar(200) [not null]
-  message text [not null]
-  type varchar(50) [not null]
-  is_read boolean [not null, default: false]
-  created_at timestamp [not null]
-}
-
-Table knowledge_base_articles {
-  id integer [pk, increment]
-  category_id integer [not null, ref: > categories.id]
-  author_id integer [not null, ref: > users.id]
-  title varchar(200) [not null]
-  content text [not null]
-  is_published boolean [not null, default: false]
-  created_at timestamp [not null]
-  updated_at timestamp
-}
-
-Table activity_logs {
-  id integer [pk, increment]
-  user_id integer [not null, ref: > users.id]
-  ticket_id integer [ref: > tickets.id]
-  action varchar(100) [not null]
-  description text
-  created_at timestamp [not null]
 }
