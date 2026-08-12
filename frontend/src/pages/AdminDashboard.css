@@ -1,0 +1,397 @@
+.admin-page {
+  min-height: 100vh;
+  background: #f5f7fb;
+  color: #172033;
+}
+
+.admin-header {
+  min-height: 76px;
+  padding: 0 40px;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e9f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.admin-brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.admin-logo {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: #172033;
+  color: #ffffff;
+  display: grid;
+  place-items: center;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.admin-brand h1 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.admin-brand p {
+  margin: 3px 0 0;
+  color: #7a8498;
+  font-size: 13px;
+}
+
+.admin-logout {
+  border: none;
+  background: #172033;
+  color: #ffffff;
+  padding: 10px 17px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.admin-content {
+  max-width: 1400px;
+  margin: auto;
+  padding: 40px;
+}
+
+.admin-welcome {
+  margin-bottom: 28px;
+}
+
+.admin-eyebrow {
+  color: #68758c;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+}
+
+.admin-welcome h2 {
+  margin: 8px 0;
+  font-size: 32px;
+}
+
+.admin-welcome p {
+  margin: 0;
+  color: #727d91;
+}
+
+.admin-message {
+  padding: 14px 18px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.admin-error {
+  background: #fff0f0;
+  color: #a52a2a;
+}
+
+.admin-success {
+  background: #eefaf1;
+  color: #23733c;
+}
+
+.admin-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.admin-stat-card {
+  background: #ffffff;
+  border: 1px solid #e6eaf0;
+  border-radius: 14px;
+  padding: 22px;
+}
+
+.admin-stat-card span {
+  display: block;
+  color: #7b8598;
+  font-size: 13px;
+  margin-bottom: 9px;
+}
+
+.admin-stat-card strong {
+  font-size: 30px;
+}
+
+.admin-card {
+  background: #ffffff;
+  border: 1px solid #e6eaf0;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.admin-card-header {
+  padding: 22px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e8ebf0;
+}
+
+.admin-card-header h3 {
+  margin: 0 0 5px;
+}
+
+.admin-card-header p {
+  margin: 0;
+  color: #7b8598;
+  font-size: 14px;
+}
+
+.admin-refresh {
+  border: none;
+  background: #eef1f6;
+  color: #172033;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.admin-table-wrapper {
+  overflow-x: auto;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.admin-table th {
+  text-align: left;
+  background: #f8f9fb;
+  color: #667085;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 14px 18px;
+  white-space: nowrap;
+}
+
+.admin-table td {
+  padding: 18px;
+  border-top: 1px solid #edf0f4;
+  font-size: 14px;
+}
+
+.admin-user-name {
+  font-weight: 600;
+}
+
+.admin-role-badge {
+  display: inline-flex;
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.customer-role {
+  background: #edf6ff;
+  color: #2864a8;
+}
+
+.agent-role {
+  background: #f1edff;
+  color: #6846a5;
+}
+
+.admin-role {
+  background: #fff2df;
+  color: #9a6200;
+}
+
+.active-status {
+  color: #23733c;
+  font-weight: 600;
+}
+
+.inactive-status {
+  color: #a52a2a;
+  font-weight: 600;
+}
+
+.admin-delete {
+  border: none;
+  background: #fff0f0;
+  color: #b42318;
+  padding: 8px 13px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.admin-delete:hover:not(:disabled) {
+  background: #ffe0e0;
+}
+
+.admin-delete:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.admin-empty {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.admin-empty-icon {
+  width: 48px;
+  height: 48px;
+  margin: auto;
+  border-radius: 50%;
+  background: #eef1f6;
+  display: grid;
+  place-items: center;
+  font-size: 20px;
+}
+
+.admin-empty h4 {
+  margin: 15px 0 6px;
+}
+
+.admin-empty p {
+  margin: 0;
+  color: #7b8598;
+}
+
+.admin-loading {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  color: #667085;
+}
+
+@media (max-width: 900px) {
+  .admin-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 650px) {
+  .admin-header {
+    padding: 0 18px;
+  }
+
+  .admin-content {
+    padding: 24px 18px;
+  }
+
+  .admin-welcome h2 {
+    font-size: 26px;
+  }
+
+  .admin-stats {
+    grid-template-columns: 1fr;
+  }
+}
+.admin-ticket-stats {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.admin-ticket-stat {
+  background: #ffffff;
+  border: 1px solid #e6eaf0;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.admin-ticket-stat span {
+  display: block;
+  color: #7b8598;
+  font-size: 12px;
+  margin-bottom: 7px;
+}
+
+.admin-ticket-stat strong {
+  font-size: 23px;
+}
+
+.admin-ticket-description {
+  margin-top: 5px;
+  color: #7b8598;
+  font-size: 12px;
+  max-width: 300px;
+  line-height: 1.5;
+}
+
+.admin-status-select {
+  min-width: 125px;
+  padding: 8px 10px;
+  border: 1px solid #d9dee7;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #172033;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.admin-status-select:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.status-open {
+  border-color: #b9c7dd;
+}
+
+.status-assigned {
+  border-color: #c5b4ee;
+}
+
+.status-in_progress {
+  border-color: #f0c878;
+}
+
+.status-resolved {
+  border-color: #9bd4ae;
+}
+
+.status-closed {
+  border-color: #c5cad3;
+}
+
+@media (max-width: 1100px) {
+  .admin-ticket-stats {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 650px) {
+  .admin-ticket-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.admin-agent-select {
+  min-width: 150px;
+  max-width: 180px;
+  padding: 8px 10px;
+  border: 1px solid #d9dee7;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #172033;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.admin-agent-select:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.admin-assignment {
+  display: flex;
+  align-items: center;
+}

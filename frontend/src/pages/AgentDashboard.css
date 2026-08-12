@@ -1,0 +1,533 @@
+.agent-page {
+  min-height: 100vh;
+  background: #f5f7fb;
+  color: #172033;
+}
+
+.agent-header {
+  min-height: 76px;
+  padding: 0 40px;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e9f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.agent-brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.agent-logo {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: #172033;
+  color: white;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.agent-brand h1 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.agent-brand p {
+  margin: 3px 0 0;
+  color: #7a8498;
+  font-size: 13px;
+}
+
+.agent-logout,
+.refresh-button {
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-weight: 600;
+}
+
+.agent-logout {
+  background: #172033;
+  color: white;
+}
+
+.agent-content {
+  max-width: 1400px;
+  margin: auto;
+  padding: 40px;
+}
+
+.agent-welcome {
+  margin-bottom: 28px;
+}
+
+.agent-eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  color: #68758c;
+}
+
+.agent-welcome h2 {
+  margin: 8px 0;
+  font-size: 32px;
+}
+
+.agent-welcome p {
+  margin: 0;
+  color: #727d91;
+}
+
+.agent-message {
+  padding: 14px 18px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.agent-error {
+  background: #fff0f0;
+  color: #a52a2a;
+}
+
+.agent-success {
+  background: #eefaf1;
+  color: #23733c;
+}
+
+.agent-stats {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.agent-stat-card {
+  background: white;
+  border: 1px solid #e6eaf0;
+  border-radius: 14px;
+  padding: 20px;
+}
+
+.agent-stat-card span {
+  display: block;
+  color: #7b8598;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.agent-stat-card strong {
+  font-size: 28px;
+}
+
+.agent-card {
+  background: white;
+  border: 1px solid #e6eaf0;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.agent-card-header {
+  padding: 22px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e8ebf0;
+}
+
+.agent-card-header h3 {
+  margin: 0 0 5px;
+}
+
+.agent-card-header p {
+  margin: 0;
+  color: #7b8598;
+  font-size: 14px;
+}
+
+.refresh-button {
+  background: #eef1f6;
+  color: #172033;
+}
+
+.agent-table-wrapper {
+  overflow-x: auto;
+}
+
+.agent-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.agent-table th {
+  text-align: left;
+  background: #f8f9fb;
+  color: #667085;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 14px 18px;
+  white-space: nowrap;
+}
+
+.agent-table td {
+  padding: 18px;
+  border-top: 1px solid #edf0f4;
+  vertical-align: middle;
+  font-size: 14px;
+}
+
+.ticket-subject {
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.ticket-description {
+  color: #7a8497;
+  font-size: 12px;
+  max-width: 300px;
+}
+
+.agent-status-select {
+  min-width: 130px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #d9dee7;
+  background: white;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.status-open {
+  color: #9a6200;
+}
+
+.status-assigned {
+  color: #315ea8;
+}
+
+.status-in_progress {
+  color: #7251a8;
+}
+
+.status-resolved {
+  color: #267545;
+}
+
+.status-closed {
+  color: #667085;
+}
+
+.agent-empty {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.agent-empty-icon {
+  width: 48px;
+  height: 48px;
+  margin: auto;
+  border-radius: 50%;
+  background: #eefaf1;
+  color: #267545;
+  display: grid;
+  place-items: center;
+  font-size: 22px;
+}
+
+.agent-empty h4 {
+  margin: 15px 0 6px;
+}
+
+.agent-empty p {
+  margin: 0;
+  color: #7b8598;
+}
+
+.agent-loading {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  color: #667085;
+}
+
+@media (max-width: 1100px) {
+  .agent-stats {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .agent-header {
+    padding: 0 18px;
+  }
+
+  .agent-content {
+    padding: 24px 18px;
+  }
+
+  .agent-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .agent-welcome h2 {
+    font-size: 26px;
+  }
+}
+.view-ticket-button {
+  border: none;
+  background: #edf3ff;
+  color: #245edb;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.view-ticket-button:hover {
+  background: #dce8ff;
+}
+
+.agent-conversation-card {
+  margin-top: 28px;
+  background: #ffffff;
+  border: 1px solid #e6eaf0;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.conversation-card-header {
+  padding: 24px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  border-bottom: 1px solid #e8ebf0;
+}
+
+.conversation-ticket-number {
+  display: inline-block;
+  color: #2864df;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.conversation-card-header h3 {
+  margin: 0 0 6px;
+  font-size: 21px;
+}
+
+.conversation-card-header p {
+  margin: 0;
+  color: #7b8598;
+  font-size: 13px;
+}
+
+.close-conversation-button {
+  border: 1px solid #d8dee8;
+  background: #ffffff;
+  color: #344054;
+  padding: 9px 15px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.agent-ticket-info {
+  display: flex;
+  gap: 40px;
+  padding: 18px 24px;
+  background: #f8f9fb;
+  border-bottom: 1px solid #e8ebf0;
+}
+
+.agent-ticket-info div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.agent-ticket-info span {
+  color: #7b8598;
+  font-size: 12px;
+}
+
+.agent-ticket-info strong {
+  color: #172033;
+  font-size: 14px;
+}
+
+.agent-conversation-list {
+  padding: 24px;
+  min-height: 120px;
+}
+
+.agent-comment {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.comment-avatar {
+  width: 38px;
+  height: 38px;
+  min-width: 38px;
+  border-radius: 50%;
+  background: #edf3ff;
+  color: #2864df;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+}
+
+.comment-body {
+  flex: 1;
+  background: #f8f9fb;
+  border: 1px solid #e6eaf0;
+  border-radius: 10px;
+  padding: 13px 15px;
+}
+
+.comment-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 8px;
+}
+
+.comment-meta strong {
+  color: #172033;
+  font-size: 13px;
+}
+
+.comment-meta span {
+  color: #8a94a6;
+  font-size: 11px;
+}
+
+.comment-body p {
+  margin: 0;
+  color: #4b5567;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.conversation-loading {
+  padding: 35px;
+  text-align: center;
+  color: #7b8598;
+}
+
+.conversation-empty {
+  padding: 30px;
+  text-align: center;
+}
+
+.conversation-empty h4 {
+  margin: 12px 0 6px;
+}
+
+.conversation-empty p {
+  margin: 0;
+  color: #7b8598;
+  font-size: 13px;
+}
+
+.agent-reply-form {
+  border-top: 1px solid #e8ebf0;
+  padding: 24px;
+}
+
+.agent-reply-form label {
+  display: block;
+  margin-bottom: 8px;
+  color: #172033;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.agent-reply-form textarea {
+  width: 100%;
+  min-height: 110px;
+  box-sizing: border-box;
+  resize: vertical;
+  border: 1px solid #d7dde7;
+  border-radius: 9px;
+  padding: 13px;
+  font-family: inherit;
+  font-size: 14px;
+  color: #172033;
+  background: #ffffff;
+  outline: none;
+}
+
+.agent-reply-form textarea:focus {
+  border-color: #2864df;
+  box-shadow: 0 0 0 3px rgba(40, 100, 223, 0.1);
+}
+
+.agent-reply-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.agent-reply-footer span {
+  color: #8a94a6;
+  font-size: 11px;
+}
+
+.agent-reply-footer button {
+  border: none;
+  background: #2864df;
+  color: #ffffff;
+  padding: 11px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.agent-reply-footer button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.closed-conversation {
+  padding: 16px 24px;
+  border-top: 1px solid #e8ebf0;
+  background: #f8f9fb;
+  color: #667085;
+  font-size: 13px;
+}
+
+@media (max-width: 700px) {
+  .conversation-card-header {
+    gap: 15px;
+  }
+
+  .agent-ticket-info {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .comment-meta {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .agent-table th:nth-child(3),
+  .agent-table td:nth-child(3),
+  .agent-table th:nth-child(4),
+  .agent-table td:nth-child(4) {
+    display: none;
+  }
+}
