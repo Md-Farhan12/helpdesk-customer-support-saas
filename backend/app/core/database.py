@@ -1,32 +1,24 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import DeclarativeBase, sessionmaker
-from pydantic_settings import BaseSettings
+
+from app.core.config import settings
 
 
-class Settings(BaseSettings):
-    database_url: str
+class Base(DeclarativeBase):
+    pass
 
-    class Config:
-        env_file = ".env"
-        extra = "ignore"
-
-
-settings = Settings()
 
 engine = create_engine(
-    settings.database_url,
+    settings.DATABASE_URL,
     pool_pre_ping=True,
 )
+
 
 SessionLocal = sessionmaker(
     bind=engine,
     autoflush=False,
     autocommit=False,
 )
-
-
-class Base(DeclarativeBase):
-    pass
 
 
 def get_db():
