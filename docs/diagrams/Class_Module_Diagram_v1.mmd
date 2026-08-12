@@ -1,88 +1,100 @@
 classDiagram
 
-    class MainApplication {
-        +FastAPI app
-        +root()
-        +health_check()
-    }
+class MainApplication {
+    +FastAPI app
+    +root()
+    +health_check()
+}
 
-    class Settings {
-        +database_url
-        +load_configuration()
-    }
+class Settings {
+    +database_url
+    +jwt_secret
+    +load_configuration()
+}
 
-    class API {
-        +Authentication
-        +Users
-        +Tickets
-        +Categories
-        +Comments
-        +Notifications
-    }
+class API {
+    +Authentication
+    +Admin
+    +Catalog
+    +Tickets
+    +TicketComments
+}
 
-    class Schemas {
-        +UserCreate
-        +UserResponse
-        +TicketCreate
-        +TicketResponse
-        +TicketUpdate
-        +CommentCreate
-        +CommentResponse
-    }
+class Schemas {
+    +UserCreate
+    +UserLogin
+    +UserResponse
+    +TokenResponse
+    +TicketCreate
+    +TicketResponse
+    +TicketUpdate
+    +TicketCommentCreate
+    +TicketCommentResponse
+}
 
-    class Services {
-        +AuthService
-        +UserService
-        +TicketService
-        +CategoryService
-        +NotificationService
-    }
+class Services {
+    +UserService
+    +TicketService
+    +TicketCommentService
+}
 
-    class Repositories {
-        +UserRepository
-        +TicketRepository
-        +CategoryRepository
-        +CommentRepository
-        +NotificationRepository
-    }
+class Repositories {
+    +UserRepository
+    +TicketRepository
+    +CategoryRepository
+    +PriorityRepository
+    +TicketCommentRepository
+}
 
-    class Database {
-        +engine
-        +SessionLocal
-        +Base
-        +get_db()
-    }
+class Dependencies {
+    +get_current_user()
+    +require_agent_or_admin()
+    +require_admin()
+}
 
-    class Models {
-        +User
-        +Role
-        +Ticket
-        +Category
-        +Priority
-        +TicketComment
-        +TicketAssignment
-        +Notification
-        +KnowledgeBaseArticle
-        +ActivityLog
-    }
+class Security {
+    +hash_password()
+    +verify_password()
+    +create_access_token()
+    +decode_access_token()
+}
 
-    class PostgreSQL {
-        +helpdesk_saas
-        +Port 5432
-    }
+class Database {
+    +engine
+    +SessionLocal
+    +Base
+    +get_db()
+}
 
-    MainApplication --> API : routes requests
-    MainApplication --> Settings : loads configuration
+class Models {
+    +User
+    +Ticket
+    +Category
+    +Priority
+    +TicketComment
+}
 
-    API --> Schemas : validates requests and responses
-    API --> Services : calls business operations
+class PostgreSQL {
+    +helpdesk_saas
+    +Port 5432
+}
 
-    Services --> Repositories : uses data access
-    Services --> Models : applies business rules
+MainApplication --> API : routes requests
+MainApplication --> Settings : loads configuration
 
-    Repositories --> Database : performs database queries
-    Repositories --> Models : reads and writes entities
+API --> Schemas : validates requests
+API --> Services : calls business operations
+API --> Dependencies : protects routes
 
-    Database --> Settings : reads database configuration
-    Database --> Models : maps entities
-    Database --> PostgreSQL : SQL connections
+Services --> Repositories : uses data access
+Services --> Models : applies business rules
+
+Repositories --> Database : performs queries
+Repositories --> Models : reads and writes entities
+
+Dependencies --> Security : validates JWT
+Security --> Settings : uses JWT configuration
+
+Database --> Settings : reads database configuration
+Database --> Models : maps entities
+Database --> PostgreSQL : SQL connections
